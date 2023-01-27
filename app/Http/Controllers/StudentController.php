@@ -26,4 +26,16 @@ class StudentController extends Controller
         $student = Student::create($request->all());
         return response()->json($student);
     }
+
+    public function updateStudent(Request $request, $id){
+        $student = Student::find($id);
+        $student->update($request->all());
+        return response()->json($student);
+    }
+
+    public function deleteStudent($id){
+        $student = Student::find($id);
+        $student->delete();
+        return response()->json('Student deleted');
+    }
 }
