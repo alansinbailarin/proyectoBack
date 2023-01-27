@@ -21,4 +21,9 @@ class StudentController extends Controller
         $student = Student::where('serial_number', $serialNumber)->first();
         return response()->json($student);
     }
+
+    public function createStudent(Request $request){
+        $student = Student::create($request->all());
+        return response()->json($student);
+    }
 }

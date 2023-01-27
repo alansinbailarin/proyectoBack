@@ -26,10 +26,10 @@ class Student extends Model
     }
 
     public function group(){
-        return $this->hasOne(Group::class);
+        return $this->belongsTo(Group::class);
     }
 
     public function career(){
-        return $this->hasOne(Career::class);
+        return $this->belongsTo(Career::class);
     }
 }
