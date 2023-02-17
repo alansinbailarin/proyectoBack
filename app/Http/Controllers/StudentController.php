@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
-    public function getAllStudents(Request $request){
+    public function getAllStudents(){
         $students = Student::all();
         return response()->json($students);
     }
@@ -37,5 +37,11 @@ class StudentController extends Controller
         $student = Student::find($id);
         $student->delete();
         return response()->json('Student deleted');
+    }
+
+    public function getProfileInfo($id){
+        $student = Student::find($id);
+        $profile = $student->profile;
+        return response()->json($profile);
     }
 }
